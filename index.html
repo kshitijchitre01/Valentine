@@ -58,6 +58,38 @@ img {
   border-radius: 20px;
   margin-top: 20px;
 }
+.heart {
+  position: fixed;
+  bottom: -20px;
+  font-size: 24px;
+  animation: floatUp 6s linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-110vh) scale(1.5);
+    opacity: 0;
+  }
+}
+// Floating hearts
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerText = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 6000);
+}, 400);
+
 </style>
 </head>
 
@@ -74,9 +106,10 @@ img {
   <img src="your-image.jpg">
 </div>
 
-<audio autoplay loop>
+<audio id="bgMusic" loop>
   <source src="song.mp3" type="audio/mpeg">
 </audio>
+
 
 <script>
 const noBtn = document.getElementById("no");
@@ -89,10 +122,14 @@ noBtn.addEventListener("mouseover", () => {
   noBtn.style.top = Math.random() * 80 + "%";
 });
 
+const music = document.getElementById("bgMusic");
+
 yesBtn.addEventListener("click", () => {
+  music.play();
   page1.classList.add("hidden");
   page2.classList.remove("hidden");
 });
+
 </script>
 
 </body>
