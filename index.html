@@ -76,20 +76,6 @@ img {
     opacity: 0;
   }
 }
-// Floating hearts
-setInterval(() => {
-  const heart = document.createElement("div");
-  heart.classList.add("heart");
-  heart.innerText = "❤️";
-  heart.style.left = Math.random() * 100 + "vw";
-  heart.style.animationDuration = Math.random() * 3 + 3 + "s";
-  document.body.appendChild(heart);
-
-  setTimeout(() => {
-    heart.remove();
-  }, 6000);
-}, 400);
-
 </style>
 </head>
 
@@ -112,6 +98,20 @@ setInterval(() => {
 
 
 <script>
+// Floating hearts
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerText = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 6000);
+}, 400);
+
 const noBtn = document.getElementById("no");
 const yesBtn = document.getElementById("yes");
 const page1 = document.getElementById("page1");
